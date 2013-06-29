@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="jquery.mobile-1.3.1.min.css">
     <script type="text/javascript" charset="utf-8" src="jquery.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="jquery.mobile-1.3.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="underscore.js"></script>
     <script type='text/javascript'>//<![CDATA[
     $(window).load(function(){
         $('#targetLocalJson').click(function() {
@@ -25,16 +26,217 @@
         });
         $('#target').click(function() {
 
-            var data = {
-              "one": "Singular sensation",
-              "two": "Beady little eyes",
-              "three": "Little birds pitch by my doorstep"
-            };
+            var data = [ {
+  "RATION": "FSR2008",
+  "MENU": "MENU 1",
+  "ITEMTYPE": "Snack",
+  "ITEM": "Beef Snacks, Teriyaki",
+  "WEIGHT": "26",
+  "CALORIES": "78.26",
+  "TOTALFAT_G": "2.94",
+  "TOTALFAT_DV": ".05%",
+  "SATURATEDFAT_G": "1.33",
+  "SATURATEDFAT_DV": ".07%",
+  "TRANSFAT_G": ".13",
+  "CHOLESTEROL_MG": "20",
+  "CHOLESTEROL_DV": ".07%",
+  "SODIUM_MG": "608.4",
+  "SODIUM_DV": ".25%",
+  "POTASSIUM_MG": "167.44",
+  "CARBOHYDRATES_G": "5.51",
+  "CARBOHYDRATES_DV": ".02%",
+  "DIETARYFIBER_G": ".54",
+  "DIETARYFIBER_DV": ".02%",
+  "SUGARS_G": "0",
+  "PROTEIN_G": "7.8",
+  "VITAMINA_IU": "26.9",
+  "VITAMINA_DV": ".01%",
+  "VITAMINC_MG": ".26",
+  "VITAMINC_DV": "0%",
+  "CALCIUM_MG": "15.21",
+  "CALCIUM_DV": ".02%",
+  "IRON_MG": "1.23",
+  "IRON_DV": ".07%",
+  "VITAMINE_MG": ".26",
+  "THIAMIN_MG": ".03",
+  "RIBOFLAVIN_MG": ".15",
+  "NIACIN_MG": "1.37",
+  "VITAMINB6_MG": ".06",
+  "FOLICACID_MCG": "5.82",
+  "VITAMINB12_MCG": "1.54",
+  "PHOSPHOROUS_MG": "72.28",
+  "MAGNESIUM_MG": "12.58",
+  "ZINC_MG": "1.31",
+  "SELENIUM_MCG": "6.94",
+  "_acl": {
+    "creator": "kid_PVsQQe1N25"
+  },
+  "_kmd": {
+    "lmt": "2013-06-29T01:19:03.979Z",
+    "ect": "2013-06-29T01:19:03.979Z"
+  },
+  "_id": "51ce3607d9404fe00a0002ec"
+},
+{
+  "RATION": "FSR2012",
+  "MENU": "MENU 9",
+  "ITEMTYPE": "Entree",
+  "ITEM": "Chicken Breast Fillets, Garlic and Herb",
+  "WEIGHT": "113",
+  "CALORIES": "120.91",
+  "TOTALFAT_G": "1.32",
+  "TOTALFAT_DV": ".02%",
+  "SATURATEDFAT_G": ".43",
+  "SATURATEDFAT_DV": ".02%",
+  "TRANSFAT_G": ".01",
+  "CHOLESTEROL_MG": "64.41",
+  "CHOLESTEROL_DV": ".21%",
+  "SODIUM_MG": "360.47",
+  "SODIUM_DV": ".15%",
+  "POTASSIUM_MG": "374.03",
+  "CARBOHYDRATES_G": "1.53",
+  "CARBOHYDRATES_DV": ".01%",
+  "DIETARYFIBER_G": ".57",
+  "DIETARYFIBER_DV": ".02%",
+  "SUGARS_G": "0",
+  "PROTEIN_G": "25.7",
+  "VITAMINA_IU": "0",
+  "VITAMINA_DV": "0%",
+  "VITAMINC_MG": "0",
+  "VITAMINC_DV": "0%",
+  "CALCIUM_MG": "16.95",
+  "CALCIUM_DV": ".02%",
+  "IRON_MG": ".45",
+  "IRON_DV": ".03%",
+  "VITAMINE_MG": "0",
+  "THIAMIN_MG": ".05",
+  "RIBOFLAVIN_MG": ".12",
+  "NIACIN_MG": "14.58",
+  "VITAMINB6_MG": ".25",
+  "FOLICACID_MCG": "0",
+  "VITAMINB12_MCG": "0",
+  "PHOSPHOROUS_MG": "302.84",
+  "IODINE_MCG": ".11",
+  "MAGNESIUM_MG": "32.77",
+  "ZINC_MG": ".57",
+  "SELENIUM_MCG": "18.08",
+  "_acl": {
+    "creator": "kid_PVsQQe1N25"
+  },
+  "_kmd": {
+    "lmt": "2013-06-29T01:20:46.411Z",
+    "ect": "2013-06-29T01:20:46.411Z"
+  },
+  "_id": "51ce366ed9404fe00a000317"
+},
+{
+  "RATION": "FSR2008",
+  "MENU": "MENU 1",
+  "ITEMTYPE": "Snack",
+  "ITEM": "Beef Snacks, Barbecue",
+  "WEIGHT": "26",
+  "CALORIES": "76.7",
+  "TOTALFAT_G": "2.78",
+  "TOTALFAT_DV": ".04%",
+  "SATURATEDFAT_G": "1.17",
+  "SATURATEDFAT_DV": ".06%",
+  "TRANSFAT_G": ".13",
+  "CHOLESTEROL_MG": "20",
+  "CHOLESTEROL_DV": ".07%",
+  "SODIUM_MG": "564.2",
+  "SODIUM_DV": ".24%",
+  "POTASSIUM_MG": "173.94",
+  "CARBOHYDRATES_G": "4.91",
+  "CARBOHYDRATES_DV": ".02%",
+  "DIETARYFIBER_G": ".72",
+  "DIETARYFIBER_DV": ".03%",
+  "SUGARS_G": "0",
+  "PROTEIN_G": "8.61",
+  "VITAMINA_IU": "131.2",
+  "VITAMINA_DV": ".03%",
+  "VITAMINC_MG": ".26",
+  "VITAMINC_DV": "0%",
+  "CALCIUM_MG": "13.7",
+  "CALCIUM_DV": ".01%",
+  "IRON_MG": "1.16",
+  "IRON_DV": ".06%",
+  "VITAMINE_MG": ".33",
+  "THIAMIN_MG": ".03",
+  "RIBOFLAVIN_MG": ".15",
+  "NIACIN_MG": "1.38",
+  "VITAMINB6_MG": ".05",
+  "FOLICACID_MCG": "5.36",
+  "VITAMINB12_MCG": "1.53",
+  "PHOSPHOROUS_MG": "73.06",
+  "MAGNESIUM_MG": "12.4",
+  "ZINC_MG": "1.29",
+  "SELENIUM_MCG": "6.37",
+  "_acl": {
+    "creator": "kid_PVsQQe1N25"
+  },
+  "_kmd": {
+    "lmt": "2013-06-29T01:19:04.114Z",
+    "ect": "2013-06-29T01:19:04.114Z"
+  },
+  "_id": "51ce3608a53bb5c8150002be"
+},
+{
+  "RATION": "FSR2008",
+  "MENU": "MENU 2",
+  "ITEMTYPE": "Bread/Crax",
+  "ITEM": "Tortillas",
+  "WEIGHT": "62",
+  "CALORIES": "222.58",
+  "TOTALFAT_G": "8.06",
+  "TOTALFAT_DV": ".12%",
+  "SATURATEDFAT_G": "2.22",
+  "SATURATEDFAT_DV": ".11%",
+  "TRANSFAT_G": "2.16",
+  "CHOLESTEROL_MG": "0",
+  "CHOLESTEROL_DV": "0%",
+  "SODIUM_MG": "431.52",
+  "SODIUM_DV": ".18%",
+  "POTASSIUM_MG": "93.62",
+  "CARBOHYDRATES_G": "33.05",
+  "CARBOHYDRATES_DV": ".11%",
+  "DIETARYFIBER_G": "1.05",
+  "DIETARYFIBER_DV": ".04%",
+  "SUGARS_G": "0",
+  "PROTEIN_G": "4.9",
+  "VITAMINA_IU": "0",
+  "VITAMINA_DV": "0%",
+  "VITAMINC_MG": ".62",
+  "VITAMINC_DV": ".01%",
+  "CALCIUM_MG": "56.23",
+  "CALCIUM_DV": ".06%",
+  "IRON_MG": "2.06",
+  "IRON_DV": ".11%",
+  "VITAMINE_MG": ".52",
+  "THIAMIN_MG": ".24",
+  "RIBOFLAVIN_MG": ".2",
+  "NIACIN_MG": "2.93",
+  "VITAMINB6_MG": ".02",
+  "FOLICACID_MCG": "60.7",
+  "VITAMINB12_MCG": ".11",
+  "PHOSPHOROUS_MG": "155",
+  "IODINE_MCG": "2.5",
+  "MAGNESIUM_MG": "12.15",
+  "ZINC_MG": ".31",
+  "SELENIUM_MCG": "9.92",
+  "_acl": {
+    "creator": "kid_PVsQQe1N25"
+  },
+  "_kmd": {
+    "lmt": "2013-06-29T01:19:04.410Z",
+    "ect": "2013-06-29T01:19:04.410Z"
+  },
+  "_id": "51ce3608a53bb5c8150002d6"
+}];	
                 var items = [];
 
-              $.each(data, function(key, val) {
+              /*$.each(data, function(key, val) {
                 items.push('<li id="' + key + '">' + val + '</li>');
-              });
+              });*/
 
 /*
             $("<ul/>", {
@@ -46,8 +248,10 @@
             }).appendTo('#main-content');
 */
 
+			var itemNames = _.pluck(data, 'ITEM');
+			
             var html ='';
-            $.each(data, function(index, item) {
+            $.each(itemNames, function(index, item) {
                 html += '<li><a href="#">' + item + '</a></li>';
             });
 
