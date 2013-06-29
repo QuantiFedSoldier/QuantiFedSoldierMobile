@@ -8,6 +8,7 @@
     <script type="text/javascript" charset="utf-8" src="jquery.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="jquery.mobile-1.3.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="jquery.flot.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="jquery.flot.growraf.js"></script>
     <script type='text/javascript'>//<![CDATA[
     $(window).load(function(){
         var data = [
@@ -32,7 +33,8 @@
                                       barWidth: 0.6,
                                       fill: 1,
                                       align: "center"
-                                  }
+                                  },
+                                  grow: { active: true, duration: 2000 }
                               },
 
                               xaxis: {
@@ -47,7 +49,8 @@
                               legend: {
                                   show: false
                               },
-                              grid: { markings: markings }
+                              grid: { markings: markings },
+                              grow: { growings:[ { stepMode: "maximum" } ] }
                           });
 
         var o = plot.pointOffset({ x: 3, y: 100});
