@@ -25,43 +25,58 @@
 
         var chart = $("#chart");
 
-        var plot = $.plot(chart, data,
-                          {
-                              series: {
-                                  bars: {
-                                      show: true,
-                                      barWidth: 0.6,
-                                      fill: 1,
-                                      align: "center"
+        window.doPlots = function ()
+        {
+            var plot = $.plot(chart, data,
+                              {
+                                  series: {
+                                      bars: {
+                                          show: true,
+                                          barWidth: 0.6,
+                                          fill: 1,
+                                          align: "center"
+                                      },
+                                      grow: { active: true, duration: 2000 }
                                   },
-                                  grow: { active: true, duration: 2000 }
-                              },
 
-                              xaxis: {
-                                  ticks: [
-                                      [1, "Cal"],
-                                      [2, "Fat"],
-                                      [3, "Carb"],
-                                      [4, "Prot"],
-                                      [5, "Chol"]
-                                  ]
-                              },
-                              legend: {
-                                  show: false
-                              },
-                              grid: { markings: markings },
-                              grow: { growings:[ { stepMode: "maximum" } ] }
-                          });
+                                  xaxis: {
+                                      ticks: [
+                                          [1, "Cal"],
+                                          [2, "Fat"],
+                                          [3, "Carb"],
+                                          [4, "Prot"],
+                                          [5, "Chol"]
+                                      ]
+                                  },
+                                  legend: {
+                                      show: false
+                                  },
+                                  grid: { markings: markings },
+                                  grow: { growings: [
+                                      { stepMode: "maximum" }
+                                  ] }
+                              });
 
-        var o = plot.pointOffset({ x: 3, y: 100});
+            var o = plot.pointOffset({ x: 3, y: 100});
 
-      		// Append it to the chart that Flot already uses for positioning
+            // Append it to the chart that Flot already uses for positioning
 
-      		chart.append("<div style='position:absolute;left:" + (o.left - 50) + "px;top:" + (o.top - 20) + "px;color:#666;font-size:smaller'>100% Daily Value</div>");
+            chart.append("<div style='position:absolute;left:" + (o.left - 50) + "px;top:" + (o.top - 20) + "px;color:#666;font-size:smaller'>100% Daily Value</div>");
+        };
+
+        window.doPlots();
+
+        window.incrementFoodValue = function (index, increment) {
+            data[index].data[0][1] = data[index].data[0][1] + increment;
+        };
 
         $('#addItemButton').click(function() {
-            data[0].data[1] = data[0].data[1] + 10;
-            plot.refresh();
+            window.incrementFoodValue(0, 10);
+            window.incrementFoodValue(1, 20);
+            window.incrementFoodValue(2, 1);
+            window.incrementFoodValue(3, 4);
+            window.incrementFoodValue(4, 5);
+            window.doPlots();
         });
 
 
