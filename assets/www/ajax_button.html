@@ -246,13 +246,24 @@
                 'data-inset': 'true',
                 html: items.join('')
             }).appendTo('#main-content');
+			
 */
 
-			var itemNames = _.pluck(data, 'ITEM');
+			$.getJSON('json/Meal Ready to Eat Ration Menus 2013.json', function(data) {
+              var items = [];
+
+              $.each(data, function(key, val) {
+                items.push('<li><a href="#?id=' + key + '">' + val.ITEM + '</a></li>');
+              });
+			  
+			  $('#test_list').append(items.join(''));
+            $('#test_list').trigger('create');
+            $('#test_list').listview('refresh');
+            });
 			
-            var html ='';
-            $.each(itemNames, function(index, item) {
-                html += '<li><a href="#">' + item + '</a></li>';
+			var html ='';
+			$.each(data, function(index, item) {
+                html += '<li><a href="#?id=' + index + '">' + item.ITEM + '</a></li>';
             });
 
             $('#test_list').append($(html));
