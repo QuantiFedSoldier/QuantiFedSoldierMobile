@@ -10,6 +10,8 @@
 	<script type="text/javascript" charset="utf-8" src="underscore.js"></script>
     <script type='text/javascript'>//<![CDATA[
     $(window).load(function(){
+		var jsonData = [];
+		
         $('#targetLocalJson').click(function() {
             $.getJSON('json/Meal Ready to Eat Ration Menus 2013.json', function(data) {
               var items = [];
@@ -30,15 +32,27 @@
 
 			$.getJSON('json/Meal Ready to Eat Ration Menus 2013.json', function(data) {
               var items = [];
+			  $.each(data, function(key, val) {
+				val.idField = key;
+              });
+			  jsonData = data;
 
               var entrees = _.where(data, {ITEMTYPE: "Entree"});
 			  $.each(entrees, function(key, val) {
-                items.push('<li><a href="#?id=' + key + '">' + val.ITEM + '</a> (' + val.CALORIES + ' cal)</li>');
+                items.push('<li key="' + val.idField + '">' + val.ITEM + ' (' + val.CALORIES + ' cal)</li>');
               });
 			  
 				$('#test_list').append(items.join(''));
 				$('#test_list').trigger('create');
 				$('#test_list').listview('refresh');
+				
+				$("#test_list li").each(function() {
+					$(this).click(function() {
+						var key = $(this).attr('key');
+						var clicked = _.find(jsonData, function(ration){ return ration.idField == key; });
+						$('#main').append(clicked.ITEM);
+					});
+			   });
             });
         });
     });//]]>
