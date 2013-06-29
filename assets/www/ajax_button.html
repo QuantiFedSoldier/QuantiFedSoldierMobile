@@ -10,23 +10,9 @@
 	<script type="text/javascript" charset="utf-8" src="underscore.js"></script>
     <script type='text/javascript'>//<![CDATA[
     $(window).load(function(){
-        $('#targetLocalJson').click(function() {
-            $.getJSON('json/Meal Ready to Eat Ration Menus 2013.json', function(data) {
-              var items = [];
 
-              $.each(data, function(key, val) {
-                items.push('<li id="' + key + '">' + val + '</li>');
-              });
-
-              $("<ul id='list' data-role='listview' data-filter='false' data-inset='true'>", {
-                'class': 'my-new-list',
-                html: items.join('')
-              }).appendTo('#main-content');
-            });
-        });
-        $('#target').click(function() {
-
-                var items = [];
+		var jsonData = [];
+		var items = [];
 
 			$.getJSON('json/Meal Ready to Eat Ration Menus 2013.json', function(data) {
               var items = [];
@@ -48,11 +34,16 @@
 					$(this).click(function() {
 						var key = $(this).attr('key');
 						var clicked = _.find(jsonData, function(ration){ return ration.idField == key; });
-						$('#main').append(clicked.ITEM);
+						
+						//$('#ration-info').append(clicked.WEIGHT);
+						var previousWeight = 0;
+						if ($('#ration-info').text() !== "") {
+							previousWeight = parseInt($('#ration-info').text(), 10);
+						}
+						$('#ration-info').text(parseInt(clicked.WEIGHT) + previousWeight);
 					});
 			   });
             });
-        });
     });//]]>
     </script>
 </head>
@@ -61,13 +52,14 @@
     <div data-role="header" data-position="fixed">
     </div>
     <div id="main-content" data-role="content">
-        <input id="target" type="button" value="Get List" />
         <ul id='test_list' data-role='listview' data-filter='false' data-inset='true'>
         </ul>
     </div>
 
     <div data-role="footer" data-position="fixed">
     </div>
+	
+	<div id="ration-info"></div>
 </div>
 </body>
 </html>
