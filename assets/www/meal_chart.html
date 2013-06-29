@@ -56,6 +56,10 @@
 
       		chart.append("<div style='position:absolute;left:" + (o.left - 50) + "px;top:" + (o.top - 20) + "px;color:#666;font-size:smaller'>100% Daily Value</div>");
 
+        $('#addItemButton').click(function() {
+            data[0].data[1] = data[0].data[1] + 10;
+            plot.refresh();
+        });
 
 
     });//]]>
@@ -69,8 +73,10 @@
     </div>
     <div data-role="content">
         <div id="chart" style="width: 400px; height: 300px;"></div>
+        <input id="addItemButton" type="button" value="Add Food Item" />
     </div>
     <div data-role="footer" data-position="fixed">
+        <img src="images/bottom-nav-bar.png" width="100%" style="max-height: 80px;">
     </div>
 </div>
 </body>
